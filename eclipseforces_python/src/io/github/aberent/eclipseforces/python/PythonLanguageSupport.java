@@ -31,6 +31,7 @@ public class PythonLanguageSupport extends LanguageSupport {
 			prefs.put(ps.getClassName() + ".py", String.format("http://www.codeforces.com/contest/%s/problem/%s", contest.id, ps.getID()));
 			prefs.put(ps.getClassName() + "_test.py", String.format("http://www.codeforces.com/contest/%s/problem/%s", contest.id, ps.getID()));
 	        prefs.put("timeout." + ps.getClassName() + "_test.py", ps.getTimeLimit());
+	        prefs.flush();
 			IFile solutionFile = project.getFile(ps.getClassName()+ ".py");
 			solutionFile.create(new ByteArrayInputStream(PythonCodeGenerator.DEFAULT_CODE_TEMPLATE.getBytes()), false, null);
 			IFile testFile = project.getFile(ps.getClassName()+"_test.py");
